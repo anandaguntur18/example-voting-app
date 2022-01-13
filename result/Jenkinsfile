@@ -10,7 +10,7 @@ pipeline {
                 changeset "**/result/**"
             }
             steps{
-                echo 'Compiling worker app..'
+                echo 'Compiling result app..'
                 dir('result'){
                     sh 'npm install'
                 }
@@ -21,7 +21,7 @@ pipeline {
                 changeset "**/result/**"
             }
             steps{
-                echo 'Running unit test on worker app..'
+                echo 'Running unit test on result app..'
                 dir('result'){
                     sh 'npm install'
                     sh 'npm test'
@@ -31,7 +31,7 @@ pipeline {
     }
     post{
         always{
-            echo 'Building pipeline for worker is completed..'
+            echo 'Building pipeline for result is completed..'
         }
         failure{
             slackSend (channel: "instavote-cd", message: "Build Failed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")

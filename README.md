@@ -3,6 +3,8 @@ Example Voting App
 
 This is a sample voting app.
 
+Hello
+
 Getting started
 ---------------
 
