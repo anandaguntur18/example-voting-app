@@ -5,6 +5,8 @@ This is a sample voting app.
 
 Hello
 
+TEKOM
+
 Getting started
 ---------------
 
