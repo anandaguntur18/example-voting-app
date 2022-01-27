@@ -75,10 +75,10 @@ pipeline {
           echo 'Packaging worker app with docker'
           script{
             docker.withRegistry('https://index.docker.io/v1/', 'dockerlogin') {
-                def workerImage = docker.build("ilosaurus/worker:v${env.BUILD_ID}", "./worker")
+                def workerImage = docker.build("aey16/worker:v${env.BUILD_ID}", "./worker")
                 workerImage.push()
                 workerImage.push("${env.BRANCH_NAME}")
-                // workerImage.push("latest")
+                workerImage.push("latest")
             }
           }
         }
@@ -129,9 +129,10 @@ pipeline {
           echo 'Packaging result app with docker'
           script{
             docker.withRegistry('https://index.docker.io/v1/', 'dockerlogin') {
-                def workerImage = docker.build("ilosaurus/result:v${env.BUILD_ID}", "./result")
+                def workerImage = docker.build("aey16/result:v${env.BUILD_ID}", "./result")
                 workerImage.push()
                 workerImage.push("${env.BRANCH_NAME}")
+                workerImage.push("latest")
             }
           }
         }
@@ -187,9 +188,10 @@ pipeline {
           echo 'Packaging vote app with docker'
           script{
             docker.withRegistry('https://index.docker.io/v1/', 'dockerlogin') {
-                def workerImage = docker.build("ilosaurus/vote:v${env.BUILD_ID}", "./vote")
+                def workerImage = docker.build("aey16/vote:v${env.BUILD_ID}", "./vote")
                 workerImage.push()
                 workerImage.push("${env.BRANCH_NAME}")
+                workerImage.push("latest")
             }
           }
         }
